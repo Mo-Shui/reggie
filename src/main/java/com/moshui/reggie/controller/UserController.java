@@ -78,10 +78,10 @@ public class UserController {
         session.setAttribute(phone,code);
 
         //从Session中获取保存的验证码
-        // Object codeInSession = session.getAttribute(phone);
+        Object codeInSession = session.getAttribute(phone);
         
         //从redis中获取验证码
-        Object codeInSession = redisTemplate.opsForValue().get(phone);
+        // Object codeInSession = redisTemplate.opsForValue().get(phone);
 
         //进行验证码的比对（页面提交的验证码和Session中保存的验证码比对）
         if(codeInSession != null && codeInSession.equals(code)){
